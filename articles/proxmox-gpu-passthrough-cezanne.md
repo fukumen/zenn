@@ -2,8 +2,8 @@
 title: "Proxmox 8.1でGPU passthrough(cezanne編)"
 emoji: "👋"
 type: "tech"
-topics: ["proxmox"]
-published: false
+topics: ["proxmox","passthrough"]
+published: true
 ---
 
 # 概要
