@@ -78,9 +78,16 @@ ipv6 acl "from_HGW"
  sequence 1 deny protoKey 58 proto 58 sip any sport any 0 0 0 0 dip any dport any 0 0 0 0 icmp 1 134 0 frag 0 routing 0 tos any 0 0 asq any mirror any redirect any matchEvery 0 logging 0 
  sequence 2 deny protoKey 17 proto 17 sip any sport any 0 0 0 0 dip any dport 0 0 546 0 0 icmp any any any frag 0 routing 0 tos any 0 0 asq any mirror any redirect any matchEvery 0 logging 0 
  sequence 5 permit protoKey 0 proto 0 sip any sport any 0 0 0 0 dip any dport any 0 0 0 0 icmp any any any frag 0 routing 0 tos any 0 0 asq any mirror any redirect any matchEvery 1 logging 0 
+ (中略)
+ interface xmg5
+ acl bind seq 1 "from_HGW"
+ eee
+ no ip dhcp snooping verify mac-address
 ```
 
-sequence 1がRAの拒否、sequence 2がDHCPv6の拒否、sequence 5が全部許可である。
+前半がACLのルールの定義でsequence 1がRAの拒否、sequence 2がDHCPv6の拒否、sequence 5が全部許可である。
+
+後半がポートへのバインドであり、前半で定義したACLのルールをxmg5に割り当てている。
 
 ## RAリレーホスト
 
@@ -225,3 +232,8 @@ HGWのWIFIが使えなくなるのでWIFI APを追加する必要があり、WIF
 だが、このWRC-BE94XSがAPモードでもDHCPv6サーバーの応答をしてしまいWIFI APがDNSサーバーとして通知されてしまうという問題があり、結局やりたいことが出来ないじゃんみたいなことになってしまうと分かった。Wiresharkのパケットを添えてELECOMのサポートに相談したところ、修正していただけるということで2024年8月頃には修正されたファームが提供されるとのことだ。
 
 この問題はWindows11 PCで試す限りは再現したりしなかったりで正直良くわからないが、RAのOフラグを0にしているのに問題発生時はWindowsがDHCPv6のInfomation-requestメッセージを送信してしまうときに起きるようなのでWindows側の動作も変な気がする。
+
+# 修正履歴
+
+2024/6/15 公開
+2024/6/16 HUBの設定にACLのルールのバインドが漏れていたので追記
