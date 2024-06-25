@@ -91,7 +91,7 @@ ipv6 acl "from_HGW"
 
 ## RAリレーホスト
 
-RAを偽装してリレーするホストでは以下のようなPythonするクリプトを用意する。Debianではpython3-scapyパッケージのインストールが必要
+RAを偽装してリレーするホストでは以下のようなPythonスクリプトを用意する。Debianではpython3-scapyパッケージのインストールが必要
 
 ```:/root/ra.py
 #! /usr/bin/python3
@@ -178,7 +178,7 @@ def sniff_ra(pkt):
             pkt3=(ether/ip/ra/lladdr)
         sendp(iface=slave, x=pkt3, verbose=0)
 
-sniff(iface=master, filter="icmp6", prn=sniff_ra)
+sniff(iface=master, filter="icmp6", prn=sniff_ra, store=0)
 ```
 
 以下の変数の値は環境に合わせて修正が必要。
@@ -237,3 +237,4 @@ HGWのWIFIが使えなくなるのでWIFI APを追加する必要があり、WIF
 
 2024/6/15 公開
 2024/6/16 HUBの設定にACLのルールのバインドが漏れていたので追記
+2024/6/25 Pythonスクリプトのsniffの引数にstore=0を追加(store=0をつけないとキャプチャ結果を保持してしまいメモリが枯渇する)
