@@ -7,7 +7,7 @@ published: true
 ---
 # 概要
 
-TUF GAMING Z790-PLUS WIFI D4のBIOSをIntel 第13/14世代Coreの対策マイクロコード「0x129」に対応した1663に更新したところmodprobe nvidiaに失敗するようになってしまった話。
+TUF GAMING Z790-PLUS WIFI D4のBIOSをIntel 第13/14世代Coreの対策マイクロコード「0x129」に対応した1663に更新したところmodprobe nvidiaに失敗するようになってしまったときの復帰手順である。
 
 具体的には以下のようなメッセージが表示されカーネルモジュールのロードに失敗する。
 ```
