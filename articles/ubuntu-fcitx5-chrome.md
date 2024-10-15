@@ -1,5 +1,5 @@
 ---
-title: "Ubuntu 24.10(Waylandセッション) + fcitx5 + Google Chrome(X11モード)で変換候補のウィンドウ表示位置がおかしい問題の(その場しのぎの)対処法"
+title: "Ubuntu 24.10+fcitx5+Chromeでインプットメソッドの変換候補ウィンドウの表示位置がおかしい問題の対処法"
 emoji: "🐷"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["Ubuntu", "fcitx5", "Google Chrome"]
@@ -7,7 +7,7 @@ published: true
 ---
 # 概要
 
-うちの以下の環境でインプットメソッドの変換候補のウィンドウの表示位置がおかしな位置になってしまう問題が起きていた。
+うちの以下の環境でインプットメソッドの変換候補ウィンドウの表示位置がおかしな位置になってしまう問題が起きていた。
 
 ・Ubuntu 24.10
 ・Waylandセッション
