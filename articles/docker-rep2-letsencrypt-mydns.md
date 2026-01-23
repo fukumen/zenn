@@ -6,6 +6,11 @@ topics: ["rep2", "letsencrypt", "mydns", "docker"] # タグ。["markdown", "rust
 published: true # 公開設定（falseにすると下書き）
 ---
 
+:::message
+dockerコンテナをgithubに公開(2026/1/23時点)
+<https://github.com/fukumen/docker-rep2>を参照
+:::
+
 # 概要
 
 既存の以下の物や情報をベースにDockerでrep2+Let's Encrypt+MyDNSな環境作成をしたまとめ(2023/12/24時点)。
