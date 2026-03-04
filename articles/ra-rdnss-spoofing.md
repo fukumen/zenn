@@ -5,6 +5,17 @@ type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["コミュファ光", "ipv6"]
 published: true
 ---
+
+:::message
+Pythonスクリプトの最新版をgithubに公開(2026/3/4時点)
+<https://github.com/fukumen/rarelay>を参照
+
+この記事ではNetgear MS510TXMを使っており、LAN側からのRSと偽装したRAがHGW側へも流れてしまっていた。
+github側ではMikrotik CRS304-4XGを使用した構成例を紹介しており、HGWを完全に隔離する構成が実現出来ている。
+
+MS510TXMとやっていること自体は同じでインバウンドのルールを全ポートに設定しているだけ。ポート数が少ないから出来ることとも言える。
+:::
+
 # 概要
 
 HGWのルーター広告(以降RA)のRDNSSを偽装して内部DNSを通知する方法のまとめである。
