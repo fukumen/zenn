@@ -6,6 +6,31 @@ topics: ["proxmox","passthrough"]
 published: true
 ---
 
+:::message
+## 2026/4/21追記
+
+Proxmox 9.1.xのiGPUでchromeやedgeを開いたときにカーネルログに以下のようなエラーが出ていましたが、resize barを有効にしてやると解決しました。
+
+VGA passthroughではresize barは無効化しましょう、というのが一般的だったと思いますが、事情は変わりつつあるようです。
+
+```
+Nov 23 17:36:48 pve3 kernel: vfio-pci 0000:07:00.0: AMD-Vi: Event logged [IO_PAGE_FAULT domain=0x0002 address=0x10bc700>
+```
+
+## UEFI
+UEFIでresize barを有効化します。
+
+![UEFI2](/images/proxmox-gpu-passthrough-cezanne-UEFI2.png =500x)
+*Reize barの有効化*
+
+## /etc/pve/qemu-server/xxx.conf
+VMのコンフィグにargsを追加します。
+
+```
+args: -fw_cfg name=opt/ovmf/X-PciMmio64Mb,string=65536
+```
+:::
+
 # 概要
 
 VMにOVMFを使ってのdGPUのパススルーはネット上に情報も多くあり苦労なく動作したが、iGPUのパススルーに相当はまったので設定のまとめ。複数の情報を繋ぎ合わせないと上手く行かなかった。
