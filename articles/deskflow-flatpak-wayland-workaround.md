@@ -8,9 +8,9 @@ published: true
 
 ## はじめに
 
-Flatpak 版 [Deskflow](https://github.com/deskflow/deskflow) の v1.26.0 時点では Wayland セッションのクリップボードの共有に wl-clipboard を使う必要があるが、Flatpak 版に含まれておらずうまく機能しない。
+Flatpak 版 [Deskflow](https://github.com/deskflow/deskflow) の v1.26.0 時点では Wayland セッションのクリップボードの共有に `wl-clipboard` を使う必要があるが、Flatpak 版に含まれておらずうまく機能しない。
 
-**PR #9431 (Inputcapture clipboard integration)** にて `wl-clipboard` に依存せずに Wayland のネイティブポータル (`xdg-desktop-portal`) を使用したクリップボード統合の実装を進めているようだが、待ってられないので wl-clipboard を追加した Flatpak のカスタムビルドを行う回避策を作成したので紹介する。
+**PR #9431 (Inputcapture clipboard integration)** にて `wl-clipboard` に依存せずに Wayland のネイティブポータル (`xdg-desktop-portal`) を使用したクリップボード統合の実装を進めているようだが、待ってられないので `wl-clipboard` を追加した Flatpak のカスタムビルドを行う回避策を作成したので紹介する。
 
 修正済みのソースコードは以下のリポジトリに push しており、git cloneしてビルドするだけ。
 
