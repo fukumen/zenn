@@ -1,5 +1,5 @@
 ---
-title: "Flatpak版DeskflowをWaylandセッションでクリップボードの共有出来ない問題の回避策"
+title: "Deskflow(Flatpak版)がWaylandセッションでクリップボードの共有出来ない問題の回避策"
 emoji: "🖱️"
 type: "tech"
 topics: ["deskflow", "flatpak", "wayland", "linux"]
